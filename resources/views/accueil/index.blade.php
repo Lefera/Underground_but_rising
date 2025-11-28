@@ -4,7 +4,7 @@
     <section class="hero">
         <h1>Découvrez les artistes <span>Underground & Rising</span></h1>
         <p>La plateforme qui met en lumière les talents cachés.</p>
-        <a class="btn" href="{{ route('artistes.index') }}">Explorer les artistes</a>
+        <a class="btn" href="{{ route('front.artistes.index') }}">Explorer les artistes</a>
     </section>
 
     <!-- ARTISTES POPULAIRES -->
@@ -19,7 +19,7 @@
                     <img src="{{ asset('assets/artistes/' . $artiste->photo) }}" alt="{{ $artiste->nom }}">
                     <h3>{{ $artiste->nom }}</h3>
                     <p>{{ $artiste->genres }}</p>
-                    <a class="link" href="{{ route('artistes.show', $artiste->id) }}">
+                    <a class="link" href="{{ route('front.artistes.show', $artiste->id) }}">
     Voir l’artiste →
 </a>
             </div>
@@ -39,7 +39,7 @@
                 <div class="card">
                     <img src="{{ asset($album->cover) }}" alt="album">
                     <h3>{{ $album->titre }}</h3>
-                    <a class="link" href="{{ route('albums.show', $album->id) }}">
+                    <a class="link" href="{{ route('front.albums.show', $album->id) }}">
                         Voir l’album →
                     </a>
                 </div>
@@ -55,7 +55,7 @@
             @foreach($videos as $video)
                 <div class="video-card">
                     <iframe 
-                        src="https://www.youtube.com/embed/{{ $video->youtube_id }}" 
+                        src="https://www.youtube.com/embed/{{ $video->video_url }}" 
                         allowfullscreen>
                     </iframe>
                 </div>
@@ -69,7 +69,7 @@
 
         <div class="tags">
             @foreach($categories as $cat)
-                <span class="tag">{{ $cat->nom }}</span>
+                <span class="tag">{{ $cat }}</span>
             @endforeach
         </div>
     </section>

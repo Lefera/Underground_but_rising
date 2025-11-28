@@ -15,8 +15,8 @@
         <!-- LIENS -->
         <div class="flex flex-col gap-3">
             <a href="{{ route('home') }}" class="footer-link">Accueil</a>
-            <a href="{{ route('artistes.index') }}" class="footer-link">Artistes</a>
-            <a href="{{ route('albums.index') }}" class="footer-link">Albums</a>
+            <a href="{{ route('front.artistes.index') }}" class="footer-link">Artistes</a>
+            <a href="{{ route('front.albums.index') }}" class="footer-link">Albums</a>
             <a href="{{ route('categories.index') }}" class="footer-link">Catégories</a>
             <a href="{{ route('galerie.index') }}" class="footer-link">Galeries</a>
         </div>

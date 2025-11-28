@@ -1,36 +1,39 @@
-
-
-
 <x-app-layout>
+<div class="page-wrapper">
 
+    <section class="section">
+        <h1 class="section-title">Tous les artistes</h1>
 
+        <div class="grid-4">
+            @forelse($artistes as $artiste)
+                <div class="card artiste-card">
+                    
+                    <img class="artiste-photo"
+                         src="{{ asset('assets/artistes/' . $artiste->photo) }}"
+                         alt="{{ $artiste->nom }}">
 
+                    <div class="card-content">
+                        <h3 class="artiste-name">{{ $artiste->nom }}</h3>
 
-<div class="page-artistes">
+                        @if($artiste->featured)
+                            <span class="badge-gold">À la une</span>
+                        @endif
 
-    <h1 class="titre-page">Artistes</h1>
+                        <a href="{{ route('front.artistes.show', $artiste->id) }}" class="btn-gold">
+                            Voir profil
+                        </a>
+                    </div>
+                </div>
+            @empty
+                <p>Aucun artiste enregistré.</p>
+            @endforelse
+        </div>
 
-    <div class="artistes-grid">
-        @foreach ($artistes as $artiste)
-            <div class="artiste-card">
-
-                <img src="{{ asset($artiste->image) }}" 
-                     class="artiste-photo" 
-                     alt="{{ $artiste->nom }}">
-
-                <h3 class="artiste-nom">{{ $artiste->nom }}</h3>
-
-                <p class="artiste-style">{{ $artiste->categorie->nom ?? 'Non défini' }}</p>
-
-                <a href="{{ route('artistes.show', $artiste->id) }}" class="btn-profil">
-                    Voir le profil
-                </a>
-            </div>
-        @endforeach
-    </div>
+        {{-- Pagination Laravel Breeze --}}
+        <div class="pagination-wrapper">
+           
+        </div>
+    </section>
 
 </div>
-
-
 </x-app-layout>
-

@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategorieController;
-use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\front\AlbumController;
 use App\Http\Controllers\MusiqueController;
 use App\Http\Controllers\AccueilController;
 use App\Http\Controllers\ArtisteController;
@@ -17,14 +17,15 @@ use App\Http\Controllers\GalerieController;
 Route::get('/', [AccueilController::class, 'index'])->name('home');
 
 // Artistes
-Route::get('/artistes', [ArtisteController::class, 'index'])->name('artistes.index');
-Route::get('/artistes/{id}', [ArtisteController::class, 'show'])->name('artistes.show');
+Route::get('/artistes', [ArtisteController::class, 'index'])->name('front.artistes.index');
+Route::get('/artistes/{id}', [ArtisteController::class, 'show'])->name('front.artistes.show');
 
 // Galerie Photos
 Route::get('/galerie', [GalerieController::class, 'index'])->name('galerie.index');
 
 // Albums (visibles sans connexion)
-Route::resource('albums', AlbumController::class)->only(['index', 'show']);
+Route::get('/albums', [frontAlbumController::class,'index'])->name('front.albums.index');
+Route::get('/albums/{id}', [frontAlbumController::class, 'show'])->name('front.albums.show');
 
 // Musiques (visibles sans connexion)
 Route::resource('musiques', MusiqueController::class)->only(['index', 'show']);

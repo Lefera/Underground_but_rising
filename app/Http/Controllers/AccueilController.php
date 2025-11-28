@@ -29,6 +29,7 @@ class AccueilController extends Controller
 
         // CATÉGORIES MUSICALES
         $categories = Categorie::all();
+          $artistes = Artiste::paginate(12); // par exemple 12 par page
 
         // RETOURNE LA VUE accueil.blade.php
         return view('accueil.index', [
@@ -36,6 +37,7 @@ class AccueilController extends Controller
             'albums'     => $albums,
             'videos'     => $videos,
             'categories' => $categories,
+           
         ]);
     }
 }

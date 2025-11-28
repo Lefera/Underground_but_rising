@@ -15,8 +15,8 @@
         <!-- MENU -->
         <ul class="menu">
             <li><a href="{{ route('home') }}">Accueil</a></li>
-            <li><a href="{{ route('artistes.index') }}">Artistes</a></li>
-            <li><a href="{{ route('albums.index') }}">Albums</a></li>
+            <li><a href="{{ route('front.artistes.index') }}">Artistes</a></li>
+            <li><a href="{{ route('front.albums.index') }}">Albums</a></li>
             <li><a href="{{ route('categories.index') }}">Catégories</a></li>
             <li><a href="{{ route('galerie.index') }}">Galeries</a></li>
         </ul>
