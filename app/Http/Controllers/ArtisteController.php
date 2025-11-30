@@ -18,6 +18,11 @@ class ArtisteController extends Controller
     return view('front.artistes.index', compact('artistes', 'categories'));
     }
 
+    public function show($id)
+    {
+        $artiste = Artiste::findOrFail($id);
+        return view('front.artistes.show', compact('artiste'));
+    }
 }
 
     

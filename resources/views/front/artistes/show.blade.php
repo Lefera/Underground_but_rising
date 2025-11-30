@@ -1,4 +1,4 @@
-<x-layout-app>
+<x-app-layout>
 <div class="page-wrapper">
 
     {{-- HEADER ARTISTE --}}
@@ -91,4 +91,4 @@
     </section>
 
 </div>
-</x-layout-app>
+</x-app-layout>
